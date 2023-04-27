@@ -13,5 +13,8 @@ class Engine::GameManager
     @world = Engine::World.new self
     @world.generate
     @world.draw
+
+    # Initial camera position
+    @camera = Engine::Camera.new self
   end
 end
