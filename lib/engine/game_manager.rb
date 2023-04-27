@@ -8,5 +8,10 @@ class Engine::GameManager
 
     @options = Engine::Options.new self
     @debug = Engine::Debug.new self if @options.debug
+
+    # Generate world
+    @world = Engine::World.new self
+    @world.generate
+    @world.draw
   end
 end
