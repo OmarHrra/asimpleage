@@ -1,4 +1,6 @@
 class Engine::Debug
+  attr_accessor :game_manager, :tooltip
+
   def initialize(game_manager)
     @game_manager = game_manager
 
@@ -11,6 +13,7 @@ class Engine::Debug
       color: '#0ffc03',
       color: '#0affb1'
     )
+    @game_manager.static_ui_objects << @tooltip
   end
 
   def update
@@ -24,6 +27,5 @@ class Engine::Debug
     str = "#{@fps} FPS\nIn screen #{@in_screen}\nUI in screen #{@ui_in_screen}\nCamera: #{@camera}\nMouse: #{@mouse}"
 
     @tooltip.raw_text = str
-    @tooltip.update
   end
 end

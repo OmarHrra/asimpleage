@@ -1,6 +1,6 @@
 class Engine::Ui::Tooltip
   attr_accessor :game_manager, :raw_text, :text, :texts, :box_padding, :space_beetween_lines,
-                :line_box, :box, :min_width, :min_height, :max_width, :max_height
+                :line_box, :box, :min_width, :min_height, :max_width, :max_height, :visible
 
   def initialize(game_manager, raw_text, **attrs)
     @game_manager = game_manager
@@ -20,6 +20,7 @@ class Engine::Ui::Tooltip
 
     @box_padding = attrs[:box_padding] || 5
     @space_beetween_lines = attrs[:space_beetween_lines] || 4
+    @visible = true
 
     draw
   end
@@ -30,6 +31,8 @@ class Engine::Ui::Tooltip
   end
 
   def draw
+    return unless @visible
+
     multiline
     box
 
@@ -44,8 +47,8 @@ class Engine::Ui::Tooltip
     @text.remove
     @texts.each { |text| text.remove }
 
-    @line_box = nil
-    @box = nil
+    # @line_box = nil
+    # @box = nil
     @texts = []
   end
 
@@ -70,7 +73,7 @@ class Engine::Ui::Tooltip
   end
 
   def box
-    # In case of initial @raw_text is and empty string
+    # In case of initial @raw_text is an empty string
     if not @raw_text.empty?
       x = @texts.first.x
       y = @texts.first.y
