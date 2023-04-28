@@ -1,10 +1,11 @@
 class Engine::GameManager
-  attr_accessor :ui_objects, :game_objects, :options, :world, :camera, :ui, :players,
-                :debug
+  attr_accessor :static_ui_objects, :interactive_ui_objects, :game_objects, :options, :world,
+                :camera, :ui, :players, :debug
 
   def initialize
-    @ui_objects = []
+    @static_ui_objects = []
     @game_objects = []
+    @interactive_ui_objects = []
 
     @options = Engine::Options.new self
     @debug = Engine::Debug.new self if @options.debug
