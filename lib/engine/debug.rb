@@ -10,7 +10,6 @@ class Engine::Debug
       y: 68,
       z: @game_manager.options.ui_z_index,
       size: @game_manager.options.font_size * @game_manager.options.ui_scale,
-      color: '#0ffc03',
       color: '#0affb1'
     )
     @game_manager.static_ui_objects << @tooltip
