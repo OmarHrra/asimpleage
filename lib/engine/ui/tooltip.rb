@@ -1,4 +1,6 @@
 class Engine::Ui::Tooltip
+  include Engine::Ui::Scalable
+
   attr_accessor :game_manager, :raw_text, :text, :texts, :box_padding, :space_beetween_lines,
                 :line_box, :box, :min_width, :min_height, :max_width, :max_height, :visible
 
@@ -10,7 +12,7 @@ class Engine::Ui::Tooltip
       :min_width, :min_height, :max_width, :max_height, :box_padding, :space_beetween_lines
     )
 
-    @text = Text.new(raw_text, **@text_attrs)
+    @text = Engine::Ui::Text.new(game_manager, raw_text, **@text_attrs)
     @texts = []
 
     @min_width = attrs[:min_width]
@@ -22,6 +24,7 @@ class Engine::Ui::Tooltip
     @space_beetween_lines = attrs[:space_beetween_lines] || 4
     @visible = true
 
+    apply_ui_scale
     draw
   end
 
@@ -60,10 +63,10 @@ class Engine::Ui::Tooltip
 
     text_splitted.each_with_index do |line, index|
       y = @text.y
-      y += (index * (height + @space_beetween_lines)) if(index > 0)
+      y += (index * ((height / @game_manager.options.ui_scale) + @space_beetween_lines)) if(index > 0)
 
       @texts.push(
-        Text.new(line, **(@text_attrs.merge(y: y, x: @text.x + @box_padding)))
+        Engine::Ui::Text.new(game_manager, line, **(@text_attrs.merge(y: y, x: @text.x + @box_padding)))
       )
     end
   end
@@ -108,7 +111,7 @@ class Engine::Ui::Tooltip
       x: x - @box_padding,
       y: y - @box_padding,
       width: width + @box_padding * 2,
-      height: height + @space_beetween_lines * @texts.count + @box_padding * 2,
+      height: height + @space_beetween_lines * @texts.count + @box_padding * 2 * @game_manager.options.ui_scale,
       z: @game_manager.options.ui_z_index - 1,
       color: [0, 0, 0, 0.7]
     )
