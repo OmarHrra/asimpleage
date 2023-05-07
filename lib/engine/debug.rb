@@ -22,13 +22,14 @@ class Engine::Debug
                     @game_manager.static_ui_objects.select { |obj| obj.visible }.count
     @camera = "#{@game_manager.camera.x}, #{@game_manager.camera.y}"
     @mouse = "#{@game_manager.camera.mouse_x}, #{@game_manager.camera.mouse_y}"
-    @grid_pointer = "#{@game_manager.grid_pointer.x}, #{@game_manager.grid_pointer.y}"
+    @grid_pointer = "#{@game_manager.grid_pointer.grid_x}, #{@game_manager.grid_pointer.grid_y}"
 
     str = "#{@fps} FPS\nIn screen #{@in_screen}\n" +
           "UI in screen #{@ui_in_screen}\n" +
           "Camera: #{@camera}\n" +
           "Mouse: #{@mouse}\n" +
-          "Grid Pointer: #{@grid_pointer}"
+          "Grid: #{@grid_pointer}\n" +
+          "Pointer World Pos: #{@game_manager.grid_pointer.pointer.x.round}, #{@game_manager.grid_pointer.pointer.y.round}"
 
     @tooltip.raw_text = str
   end
