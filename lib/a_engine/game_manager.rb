@@ -1,4 +1,4 @@
-class Engine::GameManager
+class AEngine::GameManager
   attr_accessor :static_ui_objects, :interactive_ui_objects, :game_objects, :options, :world,
                 :camera, :ui, :players, :grid_pointer, :debug
 
@@ -7,18 +7,18 @@ class Engine::GameManager
     @static_ui_objects = []
     @interactive_ui_objects = []
 
-    @options = Engine::Options.new self
+    @options = AEngine::Options.new self
 
     # Generate world
-    @world = Engine::World.new self
+    @world = AEngine::World.new self
     @world.generate
     @world.draw
 
     # Initial camera position
-    @camera = Engine::Camera.new self
+    @camera = AEngine::Camera.new self
 
-    @grid_pointer = Engine::GridPointer.new self
+    @grid_pointer = AEngine::GridPointer.new self
 
-    @debug = Engine::Debug.new self if @options.debug
+    @debug = AEngine::Debug.new self if @options.debug
   end
 end

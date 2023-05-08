@@ -1,10 +1,10 @@
-class Engine::Debug
+class AEngine::Debug
   attr_accessor :game_manager, :tooltip
 
   def initialize(game_manager)
     @game_manager = game_manager
 
-    @tooltip = Engine::Ui::Tooltip.new(game_manager,
+    @tooltip = AEngine::Ui::Tooltip.new(game_manager,
       "",
       x: 7,
       y: 68,

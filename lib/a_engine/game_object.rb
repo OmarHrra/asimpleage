@@ -1,4 +1,4 @@
-class Engine::GameObject
+class AEngine::GameObject
   attr_accessor :game_manager, :type, :object, :path, :x, :y, :width, :height, :color, :rotate, :z,
                 :opacity, :fixed_at_camera, :visible, :always_visible
 
@@ -66,8 +66,8 @@ class Engine::GameObject
   end
 
   def movement_by_camera
-    x =  (@x - @game_manager.camera.x) * @game_manager.camera.scale
-    y =  (@y - @game_manager.camera.y) * @game_manager.camera.scale
+    x = (@x - @game_manager.camera.x) * @game_manager.camera.scale
+    y = (@y - @game_manager.camera.y) * @game_manager.camera.scale
 
     @object.x = x
     @object.y = y

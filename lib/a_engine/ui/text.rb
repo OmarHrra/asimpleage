@@ -1,5 +1,5 @@
-class Engine::Ui::Text < Text
-  include Engine::Ui::Scalable
+class AEngine::Ui::Text < Text
+  include AEngine::Ui::Scalable
 
   attr_accessor :game_manager
 

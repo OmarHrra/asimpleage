@@ -1,4 +1,4 @@
-class Engine::Options
+class AEngine::Options
   attr_accessor :game_manager, :resolution, :resolution_reference, :ui_scale, :font_size,
                 :ui_z_index, :debug, :main_color, :secondary_color, :tile_width, :tile_height
 
@@ -12,7 +12,7 @@ class Engine::Options
 
     @ui_scale = 1
     @font_size = 20
-    @ui_z_index = 1000
+    @ui_z_index = 10000
 
     @main_color = '#a5854e'
     @secondary_color = '#273146'

@@ -1,4 +1,4 @@
-module MouseTriggerable
+module AEngine::MouseTriggerable
   attr_accessor :click, :hover, :mouse_x, :mouse_y
 
   def mouse_up(event)

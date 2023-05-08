@@ -1,11 +1,11 @@
-class Engine::GridPointer
+class AEngine::GridPointer
   attr_accessor :game_manager, :pointer, :grid_x, :grid_y, :width, :height, :mouse_world_x, :mouse_world_y,
                 :pointer_world_x, :pointer_world_y
 
   def initialize(game_manager)
     @game_manager = game_manager
 
-    @pointer = Engine::GameObject.new(@game_manager, 
+    @pointer = AEngine::GameObject.new(@game_manager, 
       type: :image,
       path: 'assets/images/pointer.png',
       x: 0,

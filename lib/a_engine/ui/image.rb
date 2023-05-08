@@ -1,5 +1,5 @@
-class Engine::Ui::Image < Engine::GameObject
-  include Engine::Ui::Scalable
+class AEngine::Ui::Image < AEngine::GameObject
+  include AEngine::Ui::Scalable
 
   def initialize(game_manager, **attrs)
     attrs[:fixed_at_camera] = true if attrs[:fixed_at_camera].nil?

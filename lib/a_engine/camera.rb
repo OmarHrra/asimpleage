@@ -1,4 +1,4 @@
-class Engine::Camera
+class AEngine::Camera
   attr_accessor :game_manager, :x, :y, :speed, :rotate, :zoom, :threshold, :mouse_x, :mouse_y
 
   def initialize(game_manager, x = 0, y = 0, speed = 20, rotate = 0, zoom = 100, threshold = 30)
@@ -30,13 +30,13 @@ class Engine::Camera
   def key_held(event)
     case event.key
     when 'd'
-      @x += @speed
+      @x += speed
     when 'a'
-      @x -= @speed
+      @x -= speed
     when 's'
-      @y += @speed
+      @y += speed
     when 'w'
-      @y -= @speed
+      @y -= speed
     when ','
       @rotate -= 1
     when '.'
@@ -65,9 +65,9 @@ class Engine::Camera
   private
 
   def movement
-    @x += @speed if @mouse_x >= (@game_manager.options.resolution[:x] - @threshold) && @mouse_x <= @game_manager.options.resolution[:x]
-    @x -= @speed if @mouse_x <= @threshold && @mouse_x >= 0
-    @y += @speed if @mouse_y >= (@game_manager.options.resolution[:y] - @threshold) && @mouse_y <= @game_manager.options.resolution[:y]
-    @y -= @speed if @mouse_y <= @threshold && @mouse_y >= 0
+    @x += speed if @mouse_x >= (@game_manager.options.resolution[:x] - @threshold) && @mouse_x <= @game_manager.options.resolution[:x]
+    @x -= speed if @mouse_x <= @threshold && @mouse_x >= 0
+    @y += speed if @mouse_y >= (@game_manager.options.resolution[:y] - @threshold) && @mouse_y <= @game_manager.options.resolution[:y]
+    @y -= speed if @mouse_y <= @threshold && @mouse_y >= 0
   end
 end

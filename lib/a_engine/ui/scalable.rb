@@ -1,13 +1,13 @@
-module Engine::Ui::Scalable
+module AEngine::Ui::Scalable
   private
 
   def apply_ui_scale
     case self.class.name
-    when 'Engine::Ui::Image', 'Engine::Ui::Button'
+    when 'AEngine::Ui::Image', 'AEngine::Ui::Button'
       scale_ui_image
-    when 'Engine::Ui::Text'
+    when 'AEngine::Ui::Text'
       scale_ui_text
-    when 'Engine::Ui::Tooltip'
+    when 'AEngine::Ui::Tooltip'
       scale_ui_tooltip
     end
   end

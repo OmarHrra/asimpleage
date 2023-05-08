@@ -1,5 +1,5 @@
-class Engine::Ui::Button < Engine::Ui::Image
-  include MouseTriggerable
+class AEngine::Ui::Button < AEngine::Ui::Image
+  include AEngine::MouseTriggerable
 
   def initialize(game_manager, **attrs)
     super(game_manager, **attrs)

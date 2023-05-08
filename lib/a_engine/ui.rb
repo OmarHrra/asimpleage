@@ -1,4 +1,4 @@
-module Engine::Ui
+module AEngine::Ui
   require_relative 'ui/scalable'
   require_relative 'ui/image'
   require_relative 'ui/text'
