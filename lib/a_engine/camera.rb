@@ -1,7 +1,7 @@
 class AEngine::Camera
   attr_accessor :game_manager, :x, :y, :speed, :rotate, :zoom, :threshold, :mouse_x, :mouse_y
 
-  def initialize(game_manager, x = 0, y = 0, speed = 20, rotate = 0, zoom = 100, threshold = 30)
+  def initialize(game_manager, x = 0, y = 0, speed = 20, rotate = 0, zoom = 100, threshold = 7)
     @game_manager = game_manager
     @x = x
     @y = y
