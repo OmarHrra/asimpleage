@@ -1,6 +1,7 @@
 class AEngine::Options
   attr_accessor :game_manager, :resolution, :resolution_reference, :ui_scale, :font_size,
-                :ui_z_index, :debug, :main_color, :secondary_color, :tile_width, :tile_height
+                :ui_z_index, :debug, :main_color, :secondary_color,
+                :individual_tile_width, :individual_tile_height
 
   def initialize(game_manager)
     @game_manager = game_manager
@@ -17,8 +18,8 @@ class AEngine::Options
     @main_color = '#a5854e'
     @secondary_color = '#273146'
 
-    @tile_width = 97
-    @tile_height = 49
+    @individual_tile_width = 97
+    @individual_tile_height = 49
 
     @debug = true
   end
