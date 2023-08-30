@@ -53,5 +53,7 @@ module AEngine::GridPositionCalculator
     @pointer_world_y -= @pointer_world_y*0.0202225
     # x difference
     @pointer_world_y -= ((mouse_world_x / individual_tile_width) / 100) * -1
+
+    [@pointer_world_x, @pointer_world_y]
   end
 end
